@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Izzzy VPN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+            background: radial-gradient(circle at 10% 20%, #0b1120, #030712);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 24px;
+        }
+
+        .glass-card {
+            background: rgba(15, 25, 40, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 56px;
+            padding: 32px 24px;
+            box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .logo {
+            width: 88px;
+            height: 88px;
+            background: linear-gradient(145deg, #2b7a2e, #1a4d1e);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo span {
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(135deg, #FFFFFF, #a0e9a0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .subhead {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 40px;
+            font-weight: 450;
+        }
+
+        .status-panel {
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 40px;
+            padding: 32px 20px;
+            text-align: center;
+            margin-bottom: 28px;
+            border: 1px solid rgba(75, 140, 80, 0.2);
+        }
+
+        .loader {
+            width: 52px;
+            height: 52px;
+            border: 2.5px solid rgba(76, 175, 80, 0.2);
+            border-top: 2.5px solid #4caf50;
+            border-radius: 50%;
+            animation: spin 0.85s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .step-primary {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            margin-top: 8px;
+        }
+
+        .step-secondary {
+            font-size: 13px;
+            color: #7c8dab;
+            margin-top: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 60px;
+            padding: 10px 22px;
+            text-decoration: none;
+            color: #cbd5e6;
+            font-size: 14px;
+            font-weight: 460;
+            transition: all 0.2s;
+            margin-top: 12px;
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-link:hover {
+            background: rgba(46, 125, 50, 0.2);
+            color: white;
+            border-color: #2e7d32;
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 11px;
+            color: #4b5563;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="glass-card">
+    <div class="logo">
+        <span>IV</span>
+    </div>
+    <h1>Izzzy VPN</h1>
+    <div class="subhead">защита без границ</div>
+
+    <div class="status-panel">
+        <div id="step1">
+            <div class="loader"></div>
+            <div class="step-primary">Подготовка ключей</div>
+            <div class="step-secondary">Устанавливаем secure туннель</div>
+        </div>
+
+        <div id="step2" class="hidden">
+            <div class="loader"></div>
+            <div class="step-primary">Переход в приложение</div>
+            <div class="step-secondary">Открываем Happ и применяем подписку</div>
+        </div>
+
+        <div id="step3" class="hidden">
+            <div class="step-primary">Готово</div>
+            <div class="step-secondary">Подписка активирована — можно пользоваться</div>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="https://t.me/izzzy_vpn" class="social-link" target="_blank">
+            Telegram канал
+        </a>
+    </div>
+    <div class="footer-note">
+        Быстро. Анонимно. Безлимит.
+    </div>
+</div>
+
+<script>
+    const HAPP_LINK = "happ://crypt5/hfqaO4o6gzMGmnzz4z18LmzjuB5qlLwjBvzOK4lBG672Ah/yacuBd1YiYJoZmWyKseTRm/eIuUV3b/FTpUVrgY8O59mtXg1jPIQ+9zaKma0rR0MasJ9DCCnYCGgcuxQFzzENvHPn5qgUqvneAHB+vukFV5Hr8EmtAGsOrkeJ6Vo5usZl7hChDxtCjEMlpuOGxhbfX4CC==CwooWYSahgWPzDZCJsa0GsUTxXyuTDZDbeoMPj0Daibqw6GLRzm4NR/9C7RF3iCANJwHH6YrHP8Zzvgiln55QB6NJVt4L3rcHlC1tyJe6VpPPbdZVrI/oRj8Uveb4D0qP5WNft0LZxxfPpXT8qa6cqinROnU8KRqF6yHTz+Py4SqWh0l+7YEZxWrEVEeSM/6xLjW9Jk9WgPu74MvzxUWvbuVbU7/oRyJez1cjB+wr1y7cqTBr1kMgkJOx4IyuUKpIHRdXoBvbbIgCeXvBAbU40fbSaJBNRV5DCoLxi5sXBpjM4UBKi5UjsPPLBsEMUpr30PZ8K4axV3nHTtqcgoF9uQreIX92lBMmnT13NPna9dlhfkNGx744gfq2sPv98hSm+7Wovvdg2IrJGGQQ5cUYBH42cdMMZ+qb04vsKC2A5YL+nJm3UtUXSxryn+alDRz2FpU92p+Afp61Wlll6oSWPDBU06fz7q/dDWgcq/7Lf73C0eWZE8l7MhnREoniW6sKZXnLm9YzKsoD4GVzOzFRnkPaxhhlFuVu3sKvf8Ruka+oM+19U5MkdQtxlE0TLztBPHeHQBd4Y+o509vbJus94CX5o4cTSLqghMX5l+BdlHfc8bUnrI/9V4cg//Lz8WxPqTe/DQAiriaxqNDi2bkbeT5juicvqmGwL7q8YzHUN4=m7xctr";
+    
+    let step = 1;
+    
+    setTimeout(function() {
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        if (step1) step1.classList.add('hidden');
+        if (step2) step2.classList.remove('hidden');
+        
+        setTimeout(function() {
+            window.location.href = HAPP_LINK;
+            step = 3;
+            
+            setTimeout(function() {
+                if (step === 3) {
+                    const step2el = document.getElementById('step2');
+                    const step3el = document.getElementById('step3');
+                    if (step2el) step2el.classList.add('hidden');
+                    if (step3el) step3el.classList.remove('hidden');
+                }
+            }, 1500);
+        }, 1500);
+    }, 1500);
+</script>
+</body>
+</html>
