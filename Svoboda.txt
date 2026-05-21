@@ -1,4 +1,4 @@
-#profile-title: ☪️Мага✔️VPN☪️
+ #profile-title: ☪️Мага✔️VPN☪️
 #profile-update-interval: 24
 #announce: Сервера из подписки должны использоваться ТОЛЬКО при белых списках!
 #subscription-userinfo: upload=0; download=2153701362; total=0; expire=2150951622
